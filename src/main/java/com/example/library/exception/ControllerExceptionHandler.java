@@ -1,7 +1,6 @@
 package com.example.library.exception;
 
 import com.example.library.dto.ErrorDetails;
-import org.modelmapper.spi.ErrorMessage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -14,7 +13,7 @@ import java.util.Date;
 public class ControllerExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ErrorDetails> handleResourceNotFoundException(ResourceNotFoundException ex, WebRequest request){
+    public ResponseEntity<ErrorDetails> handleResourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
 
         ErrorDetails message = new ErrorDetails();
         message.setStatusCode(HttpStatus.NOT_FOUND.value());
@@ -26,7 +25,7 @@ public class ControllerExceptionHandler {
     }
 
     @ExceptionHandler(LibraryAPIException.class)
-    public ResponseEntity<ErrorDetails> handleLibraryAPIException(LibraryAPIException ex, WebRequest request){
+    public ResponseEntity<ErrorDetails> handleLibraryAPIException(LibraryAPIException ex, WebRequest request) {
 
         ErrorDetails message = new ErrorDetails();
         message.setStatusCode(HttpStatus.BAD_REQUEST.value());
@@ -38,7 +37,7 @@ public class ControllerExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorDetails> globalExceptionHandler(Exception ex, WebRequest request){
+    public ResponseEntity<ErrorDetails> globalExceptionHandler(Exception ex, WebRequest request) {
 
         ErrorDetails message = new ErrorDetails();
         message.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
