@@ -9,6 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class BookDto {
+    private long id;
     @NotEmpty
     private String name;
     @NotEmpty

@@ -12,6 +12,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class UserDto {
+    private long id;
     @NotEmpty
     private String firstName;
     @NotEmpty
